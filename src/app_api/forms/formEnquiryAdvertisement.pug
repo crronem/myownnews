@@ -1,0 +1,31 @@
+form(action="/enquirySave" header="Advertisements")
+    if !name
+        section(name="name" required)
+            header Name
+            input(type="text")
+            footer Reply with Text
+    if !email
+        section(name="email" required)
+            header Email
+            input(type="email")
+            footer Reply with Email
+    if !mobile
+        section(name="mobile")
+            header Mobile
+            p Optional
+            input(type="phone")
+    section(name="interest" default="other")
+        header Advertising Interest
+        ul
+            li(value="guidance") Guidance & Advise 
+            li(value="campaign") Campaign Multi-day
+            li(value="fullhalfpage") Full/Half Page
+            li(value="online") Online/Social
+            li(value="other") Other
+    section(name="date")
+        header Publish date
+        p Desired publish date
+        input(type="date")
+    section(name="message")
+        header Message
+        input(type="textarea")

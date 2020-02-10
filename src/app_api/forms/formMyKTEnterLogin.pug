@@ -1,0 +1,9 @@
+form(action="/myKTValidateLogin" header="Login")
+    section(name="userName" required)
+        header User Name
+        input(type="text" minlength=4 maxlength=20)
+        footer Reply with Text
+    section(name="password" required)
+        header Password
+        input(type="text" minlength=8 maxlength=20)
+        footer Reply with Password

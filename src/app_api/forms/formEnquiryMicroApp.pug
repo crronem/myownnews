@@ -1,0 +1,28 @@
+form(action="/enquirySave" header="Micro-apps")
+    if !name
+        section(name="name" required)
+            header Name
+            input(type="text")
+            footer Reply with Text
+    if !email
+        section(name="email" required)
+            header Email
+            input(type="email")
+            footer Reply with Email
+    if !mobile
+        section(name="mobile")
+            header Mobile
+            p Optional
+            input(type="phone")
+    section(name="interest" multi-select default="other")
+        header Micro-app Interest
+        p Select one or more modules
+        ul
+            li(value="loyalty") Loyalty 
+            li(value="feedback") Customer Feedback
+            li(value="lead") Lead Generator
+            li(value="online") Booking & Appointments
+            li(value="other") Quote Generator
+    section(name="message")
+        header Message
+        input(type="textarea")

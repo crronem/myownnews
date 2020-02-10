@@ -1,0 +1,9 @@
+version: "3.7"
+
+services:
+    myownnews:
+        build:
+          context: ./
+          dockerfile: ./Dockerfile
+        container_name:
+          myownnews

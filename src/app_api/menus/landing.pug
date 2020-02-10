@@ -1,0 +1,34 @@
+- function lines(text) {
+- return text.split("\n")
+- }
+section
+  header My own news
+  img(src="https://www.onem.biz/images/Khaleej_Times.jpg")
+  //img(src="http://www.w3.org/2000/svg")
+  if name 
+    p #{name}
+  else
+    p Welcome!
+  if preBody
+    each line in lines(preBody)
+      p #{line}
+  ul
+    if validated
+      li 
+        a(href="/myKT") My KT
+    else
+        li 
+          a(href="/myKTSignupLogin") My KT Signup/Login
+    li I want see about getting a...
+    li 
+      a(href="/enquiryMicroApp") micro-app
+        img(src="https://www.onem.biz/images/Khaleej_Times.jpg")
+    li 
+      a(href="/enquirySubscription") KT subscription
+    li 
+      a(href="/enquiryAdvertisement") KT advertisement
+    li 
+      a(href="/enquiryPrintQuote") print & media quote
+    li I want to...
+    li 
+      a(href="/enquiryContactUs") contact somebody in KT

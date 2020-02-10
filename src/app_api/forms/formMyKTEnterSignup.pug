@@ -1,0 +1,27 @@
+form(action="/myKTValidateSignup" header="Signup")
+    if !name
+        section(name="name" required)
+            header Name
+            input(type="text")
+            footer Reply with Text
+    if !email
+        section(name="email" required)
+            header Email
+            input(type="email")
+            footer Reply with Email
+    if !mobile
+        section(name="mobile")
+            header Mobile
+            p Optional
+            input(type="phone")
+    section(name="userName" required)
+        header User Name
+        p Choose a user name 4-20 characters.
+        input(type="text" minlength=4 maxlength=20)
+        footer Reply with Text
+    section(name="password" required)
+        header Password
+        p Choose a password 8-20 characters.
+        p No spaces, must have a capital, small letter and number.
+        input(type="text" minlength=8 maxlength=20)
+        footer Reply with Password

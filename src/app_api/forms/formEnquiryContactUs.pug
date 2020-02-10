@@ -1,0 +1,27 @@
+form(action="/enquirySave" header="Contact Us")
+    if !name
+        section(name="name" required)
+            header Name
+            input(type="text")
+            footer Reply with Text
+    if !email
+        section(name="email" required)
+            header Email
+            input(type="email")
+            footer Reply with Email
+    if !mobile
+        section(name="mobile")
+            header Mobile
+            p Optional
+            input(type="phone")
+    section(name="interest" default="other")
+        header Contact Somebody Regarding
+        ul
+            li(value="micro-app") Micro-app
+            li(value="subscription") Newspaper subscription
+            li(value="advertisement") Advertisment
+            li(value="printing") Printing quote
+            li(value="other") Other
+    section(name="message")
+        header Message
+        input(type="textarea")

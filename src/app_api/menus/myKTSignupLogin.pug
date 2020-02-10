@@ -1,0 +1,15 @@
+- function lines(text) {
+- return text.split("\n")
+- }
+section
+  header My KT
+  if name 
+    p #{name}
+  if preBody
+    each line in lines(preBody)
+      p #{line}
+  ul
+    li 
+      a(href="/myLoyaltyPoints") New user signup
+    li 
+      a(href="/myKTNewsProfile") Login

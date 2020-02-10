@@ -1,0 +1,56 @@
+{
+  "name": "onem-api",
+  "version": "1.0.0",
+  "description": "ONEm myownnews",
+  "main": "index.js",
+  "engines": {
+    "node": ">=10.15.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/index",
+    "start:dev": "nodemon ./src/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crronem/myownnews.git"
+  },
+  "keywords": [
+    "onem",
+    "api"
+  ],
+  "author": "chris horn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crronem/myownnews.git/issues"
+  },
+  "homepage": "https://github.com/crronem/myownnews.git#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.7",
+    "body-parser": "^1.18.3",
+    "debug": "^4.1.1",
+    "debug-level": "^0.3.0",
+    "dotenv": "^7.0.0",
+    "easy-template-x": "^0.8.3",
+    "errorhandler": "^1.5.0",
+    "express": "^4.16.4",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "jwt-simple": "^0.5.6",
+    "logger": "0.0.1",
+    "mailjet": "0.0.1",
+    "method-override": "^3.0.0",
+    "moment": "^2.24.0",
+    "mongoose": "^5.7.13",
+    "morgan": "^1.9.1",
+    "node-mailjet": "^3.3.1",
+    "nodejs-base64": "^1.0.3",
+    "onem-nodejs-api": "^1.0.6",
+    "onemsdk": "^0.14.2",
+    "password-validator": "^5.0.3",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}

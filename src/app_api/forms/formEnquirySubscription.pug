@@ -1,0 +1,32 @@
+form(action="/enquirySave" header="Subscriptions")
+    if !name
+        section(name="name" required)
+            header Name
+            input(type="text")
+            footer Reply with Text
+    if !email
+        section(name="email" required)
+            header Email
+            input(type="email")
+            footer Reply with Email
+    if !mobile
+        section(name="mobile")
+            header Mobile
+            p Optional
+            input(type="phone")
+    section(name="interest" multi-select default="other")
+        header Printing Interest
+        p Select one or more jobs
+        ul
+            li(value="stationary") Stationary
+            li(value="brochues") Brochures & Leaflets
+            li(value="books") Books & Calendars
+            li(value="businesscards") Business Cards
+            li(value="other") Other
+    section(name="date")
+        header Starting Date
+        p Desired start date
+        input(type="date")
+    section(name="message")
+        header Message
+        input(type="textarea")
