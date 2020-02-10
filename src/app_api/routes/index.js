@@ -3,7 +3,7 @@ const express = require('express')
 const api = express.Router()
 const Landing = require('./landing')
 const Enquiries = require('./enquiries')
-const myKT = require('./myKT')
+const myProfile = require('./myProfile')
 
 // function capitalize(string) {
 //     return string.charAt(0).toUpperCase() + string.slice(1)
@@ -17,15 +17,15 @@ const myKT = require('./myKT')
 api.get('/', Landing.menu())
 api.get('/landing', Landing.menu())
 
-// myMT
-api.get('/myKT', myKT.myKT())
-api.get('/myKTSignupLogin', myKT.myKTSignupLogin())
-api.get('/myKTEnterLogin', myKT.myKTEnterLogin())
-api.post('/myKTValidateLogin', myKT.myKTValidateLogin())
-api.post('/myKTValidateSignup', myKT.myKTValidateSignup())
-api.get('/myKTEnterSignup', myKT.myKTEnterSignup())
-api.get('/myKTChangePassword', myKT.myKTChangePassword())
-api.post('/myKTSavePassword', myKT.myKTSavePassword())
+// myProfile
+api.get('/myProfile', myProfile.myProfile())
+api.get('/myProfileSignupLogin', myProfile.myProfileSignupLogin())
+api.get('/myProfileEnterLogin', myProfile.myProfileEnterLogin())
+api.post('/myProfileValidateLogin', myProfile.myProfileValidateLogin())
+api.post('/myProfileValidateSignup', myProfile.myProfileValidateSignup())
+api.get('/myProfileEnterSignup', myProfile.myProfileEnterSignup())
+api.get('/myProfileChangePassword', myProfile.myProfileChangePassword())
+api.post('/myProfileSavePassword', myProfile.myProfileSavePassword())
 
 // Enquiry
 api.get('/enquiryMicroApp', Enquiries.enquiryMicroApp())

@@ -13,7 +13,7 @@ const { Response } = require('onemsdk')
 
 const Users = require('../models/Model').Users
 
-const { sentenceCase, formatInfo, titleCase } = require('../routes/utility')
+const { sentenceCase, formatInfo, titleCase } = require('./utility')
 
 const pwSchema = new passwordValidator()
 pwSchema
@@ -31,101 +31,101 @@ unSchema
     .has().not().spaces();
 
 
-const myKT = function () {
+const myProfile = function () {
     return async function (req, res) {
         let data = {}
         let rootTag = {}
         try {
             data = await Users.findOne({ ONEmUserId: req.user }).lean()
             if (data.validated) {
-                rootTag = loadTemplate("./src/app_api/forms/myKT.pug", data)
+                rootTag = loadTemplate("./src/app_api/forms/myProfile.pug", data)
             } else if (data.username) {
-                rootTag = loadTemplate("./src/app_api/forms/myKTEnterLogin.pug", data)
+                rootTag = loadTemplate("./src/app_api/forms/myProfileEnterLogin.pug", data)
             } else {
-                rootTag = loadTemplate("./src/app_api/menus/myKTEnterSignup.pug", data)
+                rootTag = loadTemplate("./src/app_api/menus/myProfileEnterSignup.pug", data)
             }
-            logger.info('myKT')
+            logger.info('myProfile')
             logger.info(JSON.stringify(data, {}, 4))
             let response = Response.fromTag(rootTag)
             return res.json(response.toJSON())
         } catch (error) {
-            logger.info("-----myKT() Error------")
+            logger.info("-----myProfile() Error------")
             console.log(error)
         }
     }
 }
 
-const myKTSignupLogin = function () {
+const myProfileSignupLogin = function () {
     return async function (req, res) {
         let data = {}
         let rootTag = {}
         try {
             data = await Users.findOne({ ONEmUserId: req.user }).lean()
             if (!data.username){
-                rootTag = loadTemplate("./src/app_api/forms/formMyKTEnterSignup.pug", data)
+                rootTag = loadTemplate("./src/app_api/forms/formmyProfileEnterSignup.pug", data)
             } else {
-                rootTag = loadTemplate("./src/app_api/forms/formMyKTEnterLogin.pug", data)
+                rootTag = loadTemplate("./src/app_api/forms/formmyProfileEnterLogin.pug", data)
             }
-            logger.info('myKTSignupLogin')
+            logger.info('myProfileSignupLogin')
             logger.info(JSON.stringify(data, {}, 4))
             let response = Response.fromTag(rootTag)
             return res.json(response.toJSON())
         } catch (error) {
-            logger.info("-----myKTSignupLogin() Error------")
+            logger.info("-----myProfileSignupLogin() Error------")
             console.log(error)
         }
     }
 }
 
-const myKTEnterSignup = function () {
+const myProfileEnterSignup = function () {
     return async function (req, res) {
         let data = {}
         try {
             data = await Users.findOne({ ONEmUserId: req.user }).lean()
-            logger.info('myKTEnterSignup')
+            logger.info('myProfileEnterSignup')
             logger.info(JSON.stringify(data, {}, 4))
-            let rootTag = loadTemplate("./src/app_api/forms/formMyKTEnterSignup.pug", data)
+            let rootTag = loadTemplate("./src/app_api/forms/formmyProfileEnterSignup.pug", data)
             let response = Response.fromTag(rootTag)
             return res.json(response.toJSON())
         } catch (error) {
-            logger.info("-----myKTEnterSignup() Error------")
+            logger.info("-----myProfileEnterSignup() Error------")
             console.log(error)
         }
     }
 }
 
-const myKTEnterLogin = function () {
+const myProfileEnterLogin = function () {
     return async function (req, res) {
         let data = {}
         try {
             data = await Users.findOne({ ONEmUserId: req.user }).lean()
-            logger.info('myKTLogin')
+            logger.info('myProfileLogin')
             logger.info(JSON.stringify(data, {}, 4))
-            let rootTag = loadTemplate("./src/app_api/menus/myKTLogin.pug", data)
+            let rootTag = loadTemplate("./src/app_api/menus/myProfileLogin.pug", data)
             let response = Response.fromTag(rootTag)
             return res.json(response.toJSON())
         } catch (error) {
-            logger.info("-----myKTLogin() Error------")
+            logger.info("-----myProfileLogin() Error------")
             console.log(error)
         }
     }
 }
 
-const myKTChangePassword = function () {
+const myProfileChangePassword = function () {
     return async function (req, res) {
         let data = {}
         try {
-            let rootTag = loadTemplate("./src/app_api/forms/formMyKTChangePassword.pug", data)
+            let rootTag = loadTemplate("./src/app_api/forms/formmyProfileChangePassword.pug", data)
             let response = Response.fromTag(rootTag)
             return res.json(response.toJSON())
         } catch (error) {
-            logger.info("-----myKTChangePassword() Error------")
+            logger.info("-----myProfileChangePassword() Error------")
             console.log(error)
         }
     }
 }
 
-const myKTValidateLogin = function () {
+const myProfileValidateLogin = function () {
     return async function (req, res) {
         let data = {}
         let rootTag = {}
@@ -135,27 +135,27 @@ const myKTValidateLogin = function () {
                 if (err) {
                     data.preBody = "User name or password is incorrect!"
                     data.valid = false
-                    rootTag = loadTemplate("./src/app_api/forms/myKT.pug", data)
+                    rootTag = loadTemplate("./src/app_api/forms/myProfile.pug", data)
                 }
                 if (check) {
                     data.preBody = "User name or password is incorrect!"
                     data.valid = false
-                    rootTag = loadTemplate("./src/app_api/forms/myKT.pug", data)
+                    rootTag = loadTemplate("./src/app_api/forms/myProfile.pug", data)
                 } else {
                     data.valid = true
-                    rootTag = loadTemplate("./src/app_api/menu/myKT.pug", data)
+                    rootTag = loadTemplate("./src/app_api/menu/myProfile.pug", data)
                 }
             })
             let response = Response.fromTag(rootTag)
             return res.json(response.toJSON())
         } catch (error) {
-            logger.info("-----myKTChangePassword() Error------")
+            logger.info("-----myProfileChangePassword() Error------")
             console.log(error)
         }
     }
 }
 
-const myKTValidateSignup = function () {
+const myProfileValidateSignup = function () {
     return async function (req, res) {
         let data = {}
         let username = null
@@ -168,28 +168,28 @@ const myKTValidateSignup = function () {
                         update = { password: hash, username: username }
                         data = await Users.findOneAndUpdate(query, update, options).lean()
                     })
-                    logger.info('myKTValidateSignup')
+                    logger.info('myProfileValidateSignup')
                     logger.info(JSON.stringify(data, {}, 4))
                     data.preBody = "You are now registered.\nRemember your username and password!"
                     
                 } else {
                     data.preBody = "The password is not valid"
-                    rootTag = loadTemplate("./src/app_api/forms/formMyKTChangePassword.pug", data)
+                    rootTag = loadTemplate("./src/app_api/forms/formmyProfileChangePassword.pug", data)
                 }
             } else {
                 data.preBody = "There was a problem with your username or password!"
             }
-            let rootTag = loadTemplate("./src/app_api/menus/myKT.pug", data)
+            let rootTag = loadTemplate("./src/app_api/menus/myProfile.pug", data)
             let response = Response.fromTag(rootTag)
             return res.json(response.toJSON())
         } catch (error) {
-            logger.info("-----myKTChangePassword() Error------")
+            logger.info("-----myProfileChangePassword() Error------")
             console.log(error)
         }
     }
 }
 
-const myKTSavePassword = function () {
+const myProfileSavePassword = function () {
     return async function (req, res) {
         let data = {}
         let rootTag = {}
@@ -202,30 +202,30 @@ const myKTSavePassword = function () {
                     update = { password: hash }
                     data = await Users.findOneAndUpdate(query, update, options).lean()
                 })
-                logger.info('myKTChangePassword')
+                logger.info('myProfileChangePassword')
                 logger.info(JSON.stringify(data, {}, 4))
                 data.preBody = "Password successfully changed!"
-                rootTag = loadTemplate("./src/app_api/menus/myKT.pug", data)
+                rootTag = loadTemplate("./src/app_api/menus/myProfile.pug", data)
             } else {
                 data.preBody = "The password is not valid"
-                rootTag = loadTemplate("./src/app_api/forms/formMyKTChangePassword.pug", data)
+                rootTag = loadTemplate("./src/app_api/forms/formmyProfileChangePassword.pug", data)
             }
             let response = Response.fromTag(rootTag)
             return res.json(response.toJSON())
         } catch (error) {
-            logger.info("-----myKTChangePassword() Error------")
+            logger.info("-----myProfileChangePassword() Error------")
             console.log(error)
         }
     }
 }
 
 module.exports = {
-    myKT,
-    myKTSignupLogin,
-    myKTEnterLogin,
-    myKTChangePassword,
-    myKTValidateLogin,
-    myKTValidateSignup,
-    myKTSavePassword,
-    myKTEnterSignup
+    myProfile,
+    myProfileSignupLogin,
+    myProfileEnterLogin,
+    myProfileChangePassword,
+    myProfileValidateLogin,
+    myProfileValidateSignup,
+    myProfileSavePassword,
+    myProfileEnterSignup
 }

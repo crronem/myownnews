@@ -27,9 +27,9 @@ const menu = function () {
             logger.info('menu')
             logger.info(JSON.stringify(data, {}, 4))
             if (data.validated) {
-                rootTag = loadTemplate("./src/app_api/menus/myKT.pug", data)
+                rootTag = loadTemplate("./src/app_api/menus/myProfile.pug", data)
             } else if (data.username) {
-                rootTag = loadTemplate("./src/app_api/forms/myKTEnter.pug", data)
+                rootTag = loadTemplate("./src/app_api/forms/myProfileEnter.pug", data)
             } else {
                 rootTag = loadTemplate("./src/app_api/menus/landing.pug", data)
             }
