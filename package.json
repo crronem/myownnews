@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/crronem/myownnews.git#readme",
   "dependencies": {
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.18.3",
     "debug": "^4.1.1",
     "debug-level": "^0.3.0",
